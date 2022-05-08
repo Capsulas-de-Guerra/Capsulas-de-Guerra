@@ -1,0 +1,85 @@
+{%  extends 'admin/base.html' %}
+{% load static %}
+{% load i18n %}
+
+
+{% block content %}
+<div class="card">
+  <div class="card-body">
+    <h4 class="card-title">Service Page</h4>
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>
+              Imagem
+            </th>
+            <th>
+              Nome
+            </th>
+            <th>
+              URL
+            </th>
+            <th>
+              Descrição
+            </th>
+            <th>
+              Icone
+            </th>
+            <th>
+              Cards
+            </th>
+            <th>
+              Texto
+            </th>
+            <th>
+              Preços e Serviços
+            </th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          {% for ser in servicos %}
+          <tr>
+            <td class="py-1">
+              <img width="200px" src="{{ ser.imagem }}" alt="image"/>
+            </td> 
+            <td class="py-1">
+              {{ ser.nome }}
+            </td> 
+            <td class="py-1">
+              {{ ser.url }}
+            </td>
+            <td class="py-1">
+              {{ ser.descricao }}
+            </td>     
+            <td class="py-1">
+              {{ ser.icon }}
+            </td>  
+            <td class="py-1">
+              {% for card in ser.card.all %}
+              {{card.nome }}
+              {% endfor %}
+            </td>         
+            <td class="py-1">
+              {{ ser.texto }}
+            </td>  
+            <td class="py-1">
+              {% for card in ser.precos_servico.all %}
+              {{card.nome }}
+              {% endfor %}
+            </td>  
+
+          </tr>
+          {%  endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
+{% endblock %}
+
+

@@ -1,0 +1,44 @@
+{%  extends 'admin/base.html' %}
+{% load static %}
+{% load i18n %}
+
+
+{% block content %}
+<div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Adicionar Service Page</h4>
+      <p class="card-description">        
+      </p>
+      <form action="{% url 'admin-addService' %}" method="post" enctype="multipart/form-data" class="forms-sample">{% csrf_token %}
+        <div class="form-group">       
+          <label for="id_url">Url</label>
+          <input type="text" name="url" class="form-control" id="id_url" placeholder="Url">
+        </div>
+        <div class="form-group">
+          <label for="id_nome">Nome</label>
+          <input type="text" name="nome" class="form-control" id="id_nome" placeholder="Nome">
+        </div>
+        <div class="form-group">
+          <label for="id_descricao">Descricao</label>
+          <input type="text"  name="descricao" class="form-control" id="id_descricao" placeholder="Descricao">
+        </div>
+        <div class="form-group">
+          <label for="id_icon">Icon</label>
+          <input type="text"  name="icon" class="form-control" id="id_icon" placeholder="icIconn">
+        </div>
+        <div class="form-group">
+          <label for="id_texto">Texto</label>
+          <textarea type="text"  name="texto" class="form-control" id="id_texto" placeholder="Texto" ></textarea>
+        </div>
+        <div class="form-group">
+          <label>Imagem</label>
+          
+          <input type="file" name="imagem"  class="form-control "  required id="id_imagem" placeholder="Foto" >
+        </div>
+
+        <button type="submit" class="btn btn-primary me-2">Submit</button>
+        <button class="btn btn-light">Cancel</button>
+      </form>
+    </div>
+  </div>
+{% endblock %}

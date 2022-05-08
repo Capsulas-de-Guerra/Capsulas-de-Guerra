@@ -1,0 +1,37 @@
+{%  extends 'admin/base.html' %}
+{% load static %}
+{% load i18n %}
+
+
+{% block content %}
+<div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Adicionar Lading Page</h4>
+      <p class="card-description">
+        Alterar nas configurações
+      </p>
+      <form action="{% url 'admin-addLanding' %}" method="post" enctype="multipart/form-data" class="forms-sample">{% csrf_token %}
+        <div class="form-group">       
+          <label for="id_title">Titulo</label>
+          <input type="text" name="title" class="form-control" id="id_title" placeholder="Titulo">
+        </div>
+        <div class="form-group">
+          <label for="id_mensagemFlayer1">Mensagem 1</label>
+          <input type="text" name="mensagemFlayer1" class="form-control" id="id_mensagemFlayer1" placeholder="Mensagem 1">
+        </div>
+        <div class="form-group">
+          <label for="id_mensagemFlayer2">Mensagem 2</label>
+          <input type="text"  name="mensagemFlayer2" class="form-control" id="id_mensagemFlayer2" placeholder="Mensagem 2">
+        </div>
+        <div class="form-group">
+            <label>Imagem</label>
+            
+            <input type="file" name="imagem"  class="form-control "  required id="id_imagem" placeholder="Foto" >
+          </div>
+
+        <button type="submit" class="btn btn-primary me-2">Submit</button>
+        <button class="btn btn-light">Cancel</button>
+      </form>
+    </div>
+  </div>
+{% endblock %}

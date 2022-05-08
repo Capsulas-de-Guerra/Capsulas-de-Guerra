@@ -1,0 +1,24 @@
+{%  extends 'admin/base.html' %}
+{% load static %}
+{% load i18n %}
+
+
+{% block content %}
+<div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Adicionar Tag Service Page</h4>
+      <p class="card-description">        
+      </p>
+      <form action="{% url 'admin-addTag' %}" method="post" enctype="multipart/form-data" class="forms-sample">{% csrf_token %}
+
+        <div class="form-group">
+          <label for="id_tag">Tag</label>
+          <input type="text" name="tag" class="form-control" id="id_tag" placeholder="Tag">
+        </div>
+
+        <button type="submit" class="btn btn-primary me-2">Submit</button>
+        <button class="btn btn-light">Cancel</button>
+      </form>
+    </div>
+  </div>
+{% endblock %}

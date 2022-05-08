@@ -1,0 +1,90 @@
+{%  extends 'admin/base.html' %}
+{% load static %}
+{% load i18n %}
+
+
+{% block content %}
+<div class="card">
+  <div class="card-body">
+    <h4 class="card-title">Lading Page</h4>
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>
+              Imagem
+            </th>
+            <th>
+              Titulo
+            </th>
+            <th>
+              Mensagem 1
+            </th>
+            <th>
+              Mensagem 2
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="py-1">
+              <img width="200px" src="{{ landing.imagem }}" alt="image"/>
+            </td> 
+            <td class="py-1">
+              {{ landing.title }}
+            </td> 
+            <td class="py-1">
+              {{ landing.mensagemFlayer1 }}
+            </td>
+            <td class="py-1">
+              {{ landing.mensagemFlayer2 }}
+            </td>            
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+<div class="card">
+  <div class="card-body">
+    <h4 class="card-title">Carrocel Page</h4>
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>
+              Imagem
+            </th>
+            <th>
+              Nome
+            </th>
+            <th>
+              Ação
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for car in carrocel %}
+          <tr>
+            <td class="py-1">
+              <img width="200px" src="{{ car.imagem }}" alt="image"/>
+            </td> 
+            <td class="py-1">
+              {{ car.nome  }}
+            </td>  
+            <td class="py-1">
+              <a href="{% url 'admin-delCarrocel' car.id %}"> <button type="submit" class="btn btn-danger me-2">Delete</button></a>
+            </td>         
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+
